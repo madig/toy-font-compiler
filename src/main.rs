@@ -1,5 +1,7 @@
 use font_types::Pen;
 use font_types::{FWord, Fixed, LongDateTime, Tag, UfWord};
+use write_fonts::tables::head::MacStyle;
+use write_fonts::tables::os2::SelectionFlags;
 use write_fonts::{tables, FontBuilder};
 
 fn main() {
@@ -14,7 +16,7 @@ fn main() {
         y_min: -200,
         x_max: 450,
         y_max: 800,
-        mac_style: 0b00000000_00000000,
+        mac_style: MacStyle::empty(),
         lowest_rec_ppem: 6,
         index_to_loc_format: 1,
         magic_number: 0x5F0F3CF5,
@@ -77,7 +79,7 @@ fn main() {
         ul_unicode_range_3: 0b00000000_00000000_00000000_00000000,
         ul_unicode_range_4: 0b00000000_00000000_00000000_00000000,
         ach_vend_id: Tag::new(b"None"),
-        fs_selection: 0b00000000_01000000,
+        fs_selection: SelectionFlags::REGULAR,
         us_first_char_index: 65535,
         us_last_char_index: 65535,
         s_typo_ascender: 800,
